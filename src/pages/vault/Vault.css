@@ -1,0 +1,24 @@
+select:focus {
+  outline: "none" !important ;
+}
+.trade-img {
+  width: 300px;
+}
+.custom-deposit-button {
+  color: black; /* Non-active color */
+}
+
+.custom-deposit-button.MuiButton-contained.MuiButton-containedPrimary {
+  background-color: blue; /* Active color for Deposit button */
+}
+
+.custom-withdraw-button {
+  color: black; /* Non-active color */
+}
+
+.custom-withdraw-button.MuiButton-contained.MuiButton-containedPrimary {
+  background-color: red; /* Active color for Withdraw button */
+}
+select.select-chain:focus {
+  outline: none;
+}

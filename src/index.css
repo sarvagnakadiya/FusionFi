@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  color: #fff;
+  font-size: 1rem;
+  font-family: AvenirNext LT Pro, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  background-color: #0a0a0e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
