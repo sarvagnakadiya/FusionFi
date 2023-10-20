@@ -1,0 +1,35 @@
+.home-img {
+  width: 500px;
+}
+.bewfev {
+  font-size: 80px;
+  line-height: 100%;
+  margin: 10% auto 0 auto;
+  max-width: 900px;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(255, 184, 0);
+}
+.fmBYuZ {
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 24px;
+  line-height: 120%;
+  text-align: center;
+  color: rgb(189, 189, 189);
+  padding-top: 16px;
+}
+.cfsEuM {
+  width: 1060px;
+  padding: 1px;
+  border-radius: 8px;
+}
+.cEwxfH {
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-top: 97px;
+  margin-bottom: 150px;
+}

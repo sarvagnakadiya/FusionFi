@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import ConnectButtonCustom from "../ConnectButton/ConnectButtonCustom";
 import "../navbar/Navbar.css";
 
 function Navbar() {
@@ -38,26 +38,28 @@ function Navbar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-              borderRight: "1px solid",
-              paddingRight: "10px",
-            }}
-          >
-            LOGO
-          </Typography>
+          <NavLink to="/">
+            {" "}
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+                // borderRight: "1px solid",
+                paddingRight: "10px",
+              }}
+            >
+              <img src="FusionFi.png" style={{ width: "150px" }} />
+            </Typography>
+          </NavLink>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -89,7 +91,7 @@ function Navbar() {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <NavLink to="/overview" style={activeLinkStyle}>
+                <NavLink to="/" style={activeLinkStyle}>
                   <Typography textAlign="center">Overview</Typography>
                 </NavLink>
               </MenuItem>
@@ -105,25 +107,26 @@ function Navbar() {
               </MenuItem>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
+          <NavLink to="/">
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              <img src="FusionFi.png" style={{ width: "150px" }} />
+            </Typography>
+          </NavLink>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <NavLink to="/" style={activeLinkStyle}>
               <Button
@@ -131,8 +134,8 @@ function Navbar() {
                 sx={{
                   margin: 2,
                   color: "rgb(168 172 209 / var(--tw-text-opacity))",
-                  display: "block",
                   "--tw-text-opacity": 1,
+                  display: "block",
                 }}
               >
                 Overview
@@ -165,7 +168,7 @@ function Navbar() {
               </Button>
             </NavLink>
           </Box>
-          <ConnectButton />
+          <ConnectButtonCustom />
           <Box sx={{ flexGrow: 0 }}>
             <Menu> </Menu>
           </Box>

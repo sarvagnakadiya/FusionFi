@@ -66,6 +66,7 @@ function Vault() {
                   borderRadius: "10px",
                   width: "100%",
                   fontWeight: "700",
+                  cursor: "pointer",
                 }}
               >
                 Start Trading

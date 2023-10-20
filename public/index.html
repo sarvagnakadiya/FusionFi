@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="Favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Vault Trade is a cutting-edge DeFi derivative project that utilizes Liquid Staking to offer users more than a 5% Annual Percentage Rate (APR)."
+      content="FusionFi is a cutting-edge DeFi derivative project that utilizes Liquid Staking to offer users more than a 5% Annual Percentage Rate (APR)."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -25,11 +25,12 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Trade Vault</title>
+    <title>FusionFi</title>
   </head>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -41,69 +42,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <!-- TradingView Widget BEGIN -->
-
-    <!-- TradingView Widget END -->
-    <!-- TradingView Widget BEGIN -->
-    <!-- <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-
-      <script
-        type="text/javascript"
-        src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
-        async
-      >
-          {
-          "width": 1000,
-          "height": 490,
-          "defaultColumn": "performance",
-          "screener_type": "crypto_mkt",
-          "displayCurrency": "USD",
-          "colorTheme": "dark",
-          "locale": "en",
-          "isTransparent": false
-        }
-      </script>
-    </div> -->
-    <!-- TradingView Widget END -->
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-
-      <script
-        type="text/javascript"
-        src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-        async
-      >
-          {
-          "symbols": [
-            {
-              "proName": "FOREXCOM:SPXUSD",
-              "title": "S&P 500"
-            },
-            {
-              "proName": "FOREXCOM:NSXUSD",
-              "title": "US 100"
-            },
-            {
-              "proName": "FX_IDC:EURUSD",
-              "title": "EUR to USD"
-            },
-            {
-              "proName": "BITSTAMP:BTCUSD",
-              "title": "Bitcoin"
-            },
-            {
-              "proName": "BITSTAMP:ETHUSD",
-              "title": "Ethereum"
-            }
-          ],
-          "showSymbolLogo": true,
-          "colorTheme": "dark",
-          "isTransparent": true,
-          "displayMode": "adaptive",
-          "locale": "en"
-        }
-      </script>
-    </div>
   </body>
 </html>
