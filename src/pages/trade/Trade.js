@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import Longperps from "../../components/long-perps/Longperps";
 import Shortperps from "../../components/short-perps/Shortperps";
 import "../trade/Trade.css";
+import Footer from "../../components/footer/Footer";
 
 let tvScriptLoadingPromise;
 
@@ -73,21 +74,20 @@ function Trade() {
 
     function createWidget() {
       if (
-        document.getElementById("tradingview_9efaf") &&
+        document.getElementById("tradingview_6286b") &&
         "TradingView" in window
       ) {
         new window.TradingView.widget({
           autosize: true,
-          symbol: "COINBASE:BTCUSD",
+          symbol: "BINANCE:ETHUSD",
           interval: "D",
           timezone: "Etc/UTC",
           theme: "dark",
-          style: "8",
+          style: "1",
           locale: "en",
           enable_publishing: false,
-          withdateranges: true,
           allow_symbol_change: true,
-          container_id: "tradingview_9efaf",
+          container_id: "tradingview_6286b",
         });
       }
     }
@@ -96,10 +96,10 @@ function Trade() {
   return (
     <div>
       <Navbar />
-      <div>
+      <div style={{ minHeight: "85vh" }}>
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={0} columns={16}>
-            <Grid item xs={12}>
+          <Grid container spacing={0} columns={16} className="grid-ele-main">
+            <Grid item xs={12} className="grid-ele">
               <Item
                 style={{
                   height: "70vh",
@@ -111,13 +111,13 @@ function Trade() {
                   style={{ height: "100%", width: "100%" }}
                 >
                   <div
-                    id="tradingview_9efaf"
-                    style={{ height: "calc(100% - 20px)", width: "100%" }}
+                    id="tradingview_6286b"
+                    style={{ height: "calc(100% - 32px)", width: "100%" }}
                   />
                 </div>
               </Item>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={4} className="grid-ele2">
               <Item style={{ height: "70vh" }}>
                 {" "}
                 <ButtonGroup
@@ -163,6 +163,7 @@ function Trade() {
           </Grid>
         </Box>
       </div>
+      <Footer />
     </div>
   );
 }

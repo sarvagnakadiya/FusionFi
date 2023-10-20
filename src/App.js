@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Trade from "./pages/trade/Trade";
 import Vault from "./pages/vault/Vault";
 import Home from "./pages/home/Home";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (

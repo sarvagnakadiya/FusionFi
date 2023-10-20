@@ -92,7 +92,7 @@ function Navbar() {
             >
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink to="/" style={activeLinkStyle}>
-                  <Typography textAlign="center">Overview</Typography>
+                  <Typography textAlign="center">Home</Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -138,7 +138,7 @@ function Navbar() {
                   display: "block",
                 }}
               >
-                Overview
+                Home
               </Button>
             </NavLink>
             <NavLink to="/vault" style={activeLinkStyle}>

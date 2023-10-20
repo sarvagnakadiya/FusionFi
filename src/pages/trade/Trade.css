@@ -1,3 +1,37 @@
 .tv-embed-widget-wrapper {
   display: none !important;
 }
+
+@media only screen and ((min-width: 900px)) {
+  .grid-ele {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+  }
+  .grid-ele2 {
+    max-width: 60% !important;
+    flex-basis: 60% !important;
+    margin: 0 auto !important;
+  }
+}
+@media only screen and ((min-width: 600px)) {
+  .grid-ele {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+  }
+  .grid-ele2 {
+    max-width: 60% !important;
+    flex-basis: 60% !important;
+    margin: 0 auto !important;
+  }
+}
+@media only screen and ((min-width: 525px)) {
+  .grid-ele {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+  }
+  .grid-ele2 {
+    max-width: 60% !important;
+    flex-basis: 60% !important;
+    margin: 0 auto !important;
+  }
+}
