@@ -1,32 +1,80 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
-// will compile your contracts, add the Hardhat Runtime Environment's members to the
-// global scope, and execute the script.
+const fs = require("fs");
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const network = hre.network.name;
+  const timestamp = new Date().toISOString();
 
-  const lockedAmount = hre.ethers.parseEther("0.001");
+  // Deploy the "Spark" contract
+  const sparkContractName = "Spark";
+  const sparkFactory = await hre.ethers.getContractFactory(sparkContractName);
+  const spark = await sparkFactory.deploy();
 
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
+  const sparkContractAddress = spark.target;
 
-  await lock.waitForDeployment();
+  const contractInfoSpark = {
+    contractName: sparkContractName,
+    network,
+    timestamp,
+    contractAddress: sparkContractAddress,
+  };
+
+  // Load existing JSON data or initialize an empty array
+  let contractData = [];
+  try {
+    const existingData = fs.readFileSync("contracts.json", "utf8");
+    contractData = JSON.parse(existingData);
+  } catch (error) {
+    // File doesn't exist or is empty, initialize with an empty array
+    contractData = [];
+  }
+
+  contractData.push(contractInfoSpark);
+
+  // Write the updated array back to the JSON file
+  fs.writeFileSync("contracts.json", JSON.stringify(contractData, null, 2));
 
   console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
+    `Contract "${sparkContractName}" deployed to:`,
+    sparkContractAddress
   );
+  console.log("Network:", network);
+
+  // Deploy the "Vault" contract with parameters
+  const vaultContractName = "Vault";
+  const vaultFactory = await hre.ethers.getContractFactory(vaultContractName);
+
+  // Replace the parameters below with the actual values you want to use
+  const param2 = 100;
+  const param3 = 100;
+  const param4 = 2629743;
+
+  const vault = await vaultFactory.deploy(
+    sparkContractAddress,
+    param2,
+    param3,
+    param4
+  );
+  const vaultContractAddress = vault.target;
+
+  const contractInfoVault = {
+    contractName: vaultContractName,
+    network,
+    timestamp,
+    contractAddress: vaultContractAddress,
+  };
+  contractData.push(contractInfoVault);
+
+  // Write the updated array back to the JSON file
+  fs.writeFileSync("contracts.json", JSON.stringify(contractData, null, 2));
+
+  console.log(
+    `Contract "${vaultContractName}" deployed to:`,
+    vaultContractAddress
+  );
+  console.log("Network:", network);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
