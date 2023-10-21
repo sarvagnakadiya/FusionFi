@@ -2,7 +2,7 @@
   display: none !important;
 }
 
-@media only screen and ((min-width: 900px)) {
+/* @media only screen and ((min-width: 900px)) {
   .grid-ele {
     max-width: 100% !important;
     flex-basis: 100% !important;
@@ -34,4 +34,4 @@
     flex-basis: 60% !important;
     margin: 0 auto !important;
   }
-}
+} */
