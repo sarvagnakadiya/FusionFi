@@ -1,4 +1,5 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import "../ConnectButton/ConnectButtonCustom.css";
 const ConnectButtonCustom = () => {
   return (
     <ConnectButton.Custom>
@@ -35,6 +36,7 @@ const ConnectButtonCustom = () => {
                 return (
                   <button
                     onClick={openConnectModal}
+                    className="connect-btn"
                     type="button"
                     style={{
                       padding: "15px 30px",
@@ -118,6 +120,7 @@ const ConnectButtonCustom = () => {
                   </button>
                   <button
                     onClick={openAccountModal}
+                    className="coonect-btn"
                     type="button"
                     style={{
                       padding: "15px 30px ",

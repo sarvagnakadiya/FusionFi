@@ -1,0 +1,12 @@
+@media only screen and ((max-width: 425px)) {
+  .connect-btn {
+    padding: 12px 20px !important;
+    font-size: 12px;
+  }
+}
+@media only screen and ((max-width: 375px)) {
+  .connect-btn {
+    padding: 12px 20px !important;
+    font-size: 12px;
+  }
+}

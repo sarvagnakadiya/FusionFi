@@ -57,7 +57,11 @@ function Navbar() {
                 paddingRight: "10px",
               }}
             >
-              <img src="FusionFi.png" style={{ width: "150px" }} />
+              <img
+                src="FusionFi.png"
+                style={{ width: "150px" }}
+                className="fusion-img"
+              />
             </Typography>
           </NavLink>
 
@@ -92,17 +96,35 @@ function Navbar() {
             >
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink to="/" style={activeLinkStyle}>
-                  <Typography textAlign="center">Home</Typography>
+                  <Typography
+                    textAlign="center"
+                    color={"white"}
+                    width={"200px"}
+                  >
+                    Home
+                  </Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink to="/vault" style={activeLinkStyle}>
-                  <Typography textAlign="center">Vault</Typography>
+                  <Typography
+                    textAlign="center"
+                    color={"white"}
+                    width={"200px"}
+                  >
+                    Vault
+                  </Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink to="/trade" style={activeLinkStyle}>
-                  <Typography textAlign="center">Trade</Typography>
+                  <Typography
+                    textAlign="center"
+                    color={"white"}
+                    width={"200px"}
+                  >
+                    Trade
+                  </Typography>
                 </NavLink>
               </MenuItem>
             </Menu>

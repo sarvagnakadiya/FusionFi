@@ -403,6 +403,7 @@ function Home() {
               height="40"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="mantle"
             >
               <path
                 d="M50.9651 14.2402H46.124V25.7616H48.6206V16.7368H49.3386L53.3258 25.7616H56.0555L50.9651 14.2402Z"

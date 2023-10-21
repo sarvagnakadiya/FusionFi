@@ -12,3 +12,8 @@ a {
 }
 
 /* .........responsive........... */
+@media only screen and ((max-width: 375px)) {
+  .fusion-img {
+    width: 120px;
+  }
+}
