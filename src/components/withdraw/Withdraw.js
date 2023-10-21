@@ -24,6 +24,7 @@ function Withdraw() {
         borderRadius: "5px",
         minWidth: "400px",
       }}
+      className="d-main"
     >
       <div>
         <div style={{ color: "white", textAlign: "left", padding: "10px 5px" }}>

@@ -52,9 +52,12 @@ function Vault() {
     <div>
       <Navbar />
       <div style={{ minHeight: "85vh" }}>
-        <Grid container columns={16}>
-          <Grid xs={8}>
-            <Item style={{ height: "50vh", justifyContent: "center" }}>
+        <Grid container columns={16} className="grid-ele-main">
+          <Grid xs={8} className="grid-vault">
+            <Item
+              style={{ height: "50vh", justifyContent: "center" }}
+              className="valut-item"
+            >
               <img src="wallet-icon.webp" className="trade-img" />
               <NavLink to="/trade">
                 <Button
@@ -76,8 +79,8 @@ function Vault() {
               </NavLink>
             </Item>
           </Grid>
-          <Grid xs={8}>
-            <Item style={{ height: "50vh" }}>
+          <Grid xs={8} className="grid-vault2">
+            <Item style={{ height: "50vh" }} className="valut-item2">
               <div>
                 <div
                   style={{
@@ -86,6 +89,7 @@ function Vault() {
                     justifyContent: "space-between",
                     width: "100%",
                   }}
+                  className="wlt-flex"
                 >
                   <div
                     style={{
@@ -94,6 +98,7 @@ function Vault() {
                       "--tw-text-opacity": 1,
                       fontSize: "2rem",
                     }}
+                    className="wlt-text"
                   >
                     Wallet
                   </div>

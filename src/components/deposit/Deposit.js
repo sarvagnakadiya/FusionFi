@@ -6,6 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import "../../pages/vault/Vault.css";
 import { Button } from "@mui/material";
+import "../../pages/vault/Vault.css";
 
 function Deposit() {
   const [age, setAge] = React.useState("");
@@ -24,6 +25,7 @@ function Deposit() {
         borderRadius: "5px",
         minWidth: "400px",
       }}
+      className="d-main"
     >
       <div>
         <div
