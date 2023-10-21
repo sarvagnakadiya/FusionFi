@@ -22,3 +22,191 @@ select:focus {
 select.select-chain:focus {
   outline: none;
 }
+/* ..........responsive.......... */
+@media only screen and ((max-width: 1024px)) {
+  .valut-item {
+    height: 50vh !important;
+    margin: 18px !important;
+    padding: 22px 0px !important;
+  }
+
+  .valut-item2 {
+    height: 50vh !important;
+    justify-content: center !important;
+    padding: 30px 20px !important;
+    margin: 18px !important;
+  }
+
+  .trade-img {
+    width: 200px;
+  }
+  .long-short-btn {
+    width: 100% !important;
+  }
+  .d-main {
+    padding: 20px !important;
+    margin: 20px 0px !important;
+    max-width: 900px !important;
+    border-radius: 5px !important;
+    min-width: 400px !important;
+  }
+  .wlt-text {
+    padding-bottom: 10px;
+    font-size: 25px !important;
+  }
+  .grid-vault {
+    max-width: 50% !important;
+    flex-basis: 50% !important;
+  }
+  .grid-vault2 {
+    max-width: 50% !important;
+    flex-basis: 50% !important;
+  }
+}
+@media only screen and ((max-width: 768px)) {
+  .valut-item {
+    height: 35vh !important;
+    margin: 0px !important;
+    padding: 22px 0px !important;
+  }
+  .grid-vault2 {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin: 18px !important;
+  }
+  .grid-vault {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin: 18px !important;
+  }
+  .valut-item2 {
+    height: 55vh !important;
+    justify-content: center !important;
+    padding: 30px 20px !important;
+  }
+
+  .trade-img {
+    width: 200px;
+  }
+  .long-short-btn {
+    width: 100% !important;
+  }
+  .d-main {
+    padding: 20px !important;
+    margin: 28px 0px !important;
+    max-width: 900px !important;
+    border-radius: 5px !important;
+    min-width: 500px !important;
+  }
+  .wlt-text {
+    padding-bottom: 10px;
+    font-size: 25px !important;
+  }
+}
+@media only screen and ((max-width: 425px)) {
+  .valut-item {
+    height: 35vh !important;
+    margin: 18px !important;
+    padding: 22px 0px !important;
+  }
+  .grid-vault2 {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin: 18px !important;
+  }
+  .grid-vault {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin: 18px !important;
+  }
+  .valut-item2 {
+    height: 55vh !important;
+    justify-content: center !important;
+    padding: 30px 20px !important;
+  }
+
+  .trade-img {
+    width: 200px;
+  }
+  .long-short-btn {
+    width: 100% !important;
+  }
+  .d-main {
+    padding: 20px !important;
+    margin: 0px !important;
+    max-width: 900px !important;
+    border-radius: 5px !important;
+    min-width: 300px !important;
+  }
+  .wlt-text {
+    padding-bottom: 10px;
+    font-size: 25px !important;
+  }
+  .wlt-flex {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    margin: 20px 0px 30px 0px !important;
+  }
+}
+
+@media only screen and ((max-width: 375px)) {
+  .valut-item {
+    height: 35vh !important;
+    margin: 18px !important;
+    padding: 22px 0px !important;
+  }
+  .grid-vault2 {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin: 20px 18px !important;
+  }
+  .grid-vault {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin: 18px !important;
+  }
+  .valut-item2 {
+    height: 70vh !important;
+    justify-content: center !important;
+    padding: 30px 20px !important;
+    margin: 0px !important;
+  }
+  .valut-item {
+    margin: 20px !important;
+    height: 30vh !important;
+    padding: 30px;
+  }
+  .valut-item2 {
+    margin: 0px !important;
+    height: 55vh !important;
+    padding: 10px 25px 40px 30px;
+  }
+  .trade-img {
+    width: 200px;
+  }
+  .long-short-btn {
+    width: 100% !important;
+  }
+  .d-main {
+    padding: 20px !important;
+    margin: 0px !important;
+    max-width: 900px !important;
+    border-radius: 5px !important;
+    min-width: 235px !important;
+  }
+  .wlt-text {
+    padding-bottom: 10px;
+    font-size: 25px !important;
+  }
+  .wlt-flex {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    margin: 20px 0px 30px 0px !important;
+  }
+}

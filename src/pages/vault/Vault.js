@@ -52,9 +52,12 @@ function Vault() {
     <div>
       <Navbar />
       <div style={{ minHeight: "85vh" }}>
-        <Grid container columns={16}>
-          <Grid xs={8}>
-            <Item style={{ height: "50vh", justifyContent: "center" }}>
+        <Grid container columns={16} className="grid-ele-main">
+          <Grid xs={8} className="grid-vault">
+            <Item
+              style={{ height: "50vh", justifyContent: "center" }}
+              className="valut-item"
+            >
               <img src="wallet-icon.webp" className="trade-img" />
               <NavLink to="/trade">
                 <Button
@@ -76,66 +79,70 @@ function Vault() {
               </NavLink>
             </Item>
           </Grid>
-          <Grid xs={8}>
-            <Item style={{ height: "50vh", justifyContent: "center" }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  width: "100%",
-                }}
-              >
+          <Grid xs={8} className="grid-vault2">
+            <Item style={{ height: "50vh" }} className="valut-item2">
+              <div>
                 <div
                   style={{
-                    color: "white",
-                    color: "rgb(168 172 209 / var(--tw-text-opacity))",
-                    "--tw-text-opacity": 1,
-                    fontSize: "2rem",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
                   }}
+                  className="wlt-flex"
                 >
-                  Wallet
+                  <div
+                    style={{
+                      color: "white",
+                      color: "rgb(168 172 209 / var(--tw-text-opacity))",
+                      "--tw-text-opacity": 1,
+                      fontSize: "2rem",
+                    }}
+                    className="wlt-text"
+                  >
+                    Wallet
+                  </div>
+                  <ButtonGroup
+                    disableElevation
+                    variant="contained"
+                    aria-label="Disabled elevation buttons"
+                    background="none"
+                  >
+                    <Button
+                      onClick={handleDepositClick}
+                      style={{
+                        color: activeButton === "deposit" ? "black" : "white",
+                        "--tw-text-opacity": 1,
+                        background:
+                          activeButton === "deposit"
+                            ? "rgb(214 216 242 / var(--tw-text-opacity))"
+                            : "none",
+                        fontWeight: "700",
+                      }}
+                      className="custom-deposit-button"
+                    >
+                      Deposit
+                    </Button>
+                    <Button
+                      onClick={handleWithdrawClick}
+                      style={{
+                        color: activeButton === "withdraw" ? "black" : "white",
+                        "--tw-text-opacity": 1,
+                        background:
+                          activeButton === "withdraw"
+                            ? "rgb(214 216 242 / var(--tw-text-opacity))"
+                            : "none",
+                        fontWeight: "700",
+                      }}
+                      className="custom-withdraw-button"
+                    >
+                      Withdraw
+                    </Button>
+                  </ButtonGroup>
                 </div>
-                <ButtonGroup
-                  disableElevation
-                  variant="contained"
-                  aria-label="Disabled elevation buttons"
-                  background="none"
-                >
-                  <Button
-                    onClick={handleDepositClick}
-                    style={{
-                      color: activeButton === "deposit" ? "black" : "white",
-                      "--tw-text-opacity": 1,
-                      background:
-                        activeButton === "deposit"
-                          ? "rgb(214 216 242 / var(--tw-text-opacity))"
-                          : "none",
-                      fontWeight: "700",
-                    }}
-                    className="custom-deposit-button"
-                  >
-                    Deposit
-                  </Button>
-                  <Button
-                    onClick={handleWithdrawClick}
-                    style={{
-                      color: activeButton === "withdraw" ? "black" : "white",
-                      "--tw-text-opacity": 1,
-                      background:
-                        activeButton === "withdraw"
-                          ? "rgb(214 216 242 / var(--tw-text-opacity))"
-                          : "none",
-                      fontWeight: "700",
-                    }}
-                    className="custom-withdraw-button"
-                  >
-                    Withdraw
-                  </Button>
-                </ButtonGroup>
+                {showDeposit && <Deposit />}
+                {showWithdraw && <Withdraw />}
               </div>
-              {showDeposit && <Deposit />}
-              {showWithdraw && <Withdraw />}
             </Item>
           </Grid>
         </Grid>

@@ -99,12 +99,13 @@ function Trade() {
       <div style={{ minHeight: "85vh" }}>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={0} columns={16} className="grid-ele-main">
-            <Grid item xs={12} className="grid-ele">
+            <Grid item xs={11} className="grid-ele">
               <Item
                 style={{
                   height: "70vh",
                   justifyContent: "center",
                 }}
+                className="trade-left-grid"
               >
                 <div
                   className="tradingview-widget-container"
@@ -117,9 +118,8 @@ function Trade() {
                 </div>
               </Item>
             </Grid>
-            <Grid item xs={4} className="grid-ele2">
-              <Item style={{ height: "70vh" }}>
-                {" "}
+            <Grid item xs={5} className="grid-ele2">
+              <Item style={{ height: "70vh" }} className="trade-right-grid">
                 <ButtonGroup
                   disableElevation
                   variant="contained"
