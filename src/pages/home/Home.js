@@ -50,12 +50,21 @@ function Home() {
       <Navbar />
       <div className="hm-sec1">
         <p class="sc-a5437e8a-0 igVsvQ sc-abed4a29-2 bewfev">
-          TRADE SYNTHETIC PERPETUALS
+          Elevate Your Yield with FusionFi's Liquid Staking and Derivative
+          Trading
         </p>
         <p class="sc-a5437e8a-0 lkDHwQ sc-abed4a29-3 fmBYuZ">
-          Gain exposure to a variety of assets with up to{" "}
-          <b class="sc-abed4a29-1 kDxRFL">50x leverage</b> and{" "}
-          <b class="sc-abed4a29-1 kDxRFL">deep liquidity</b>
+          Join FusionFi for an exciting journey into the world of decentralized
+          finance.
+          <b class="sc-abed4a29-1 kDxRFL">
+            {" "}
+            Liquid Staking, perpetual swaps, and multi-network deployment
+          </b>{" "}
+          and{" "}
+          <b class="sc-abed4a29-1 kDxRFL">
+            {" "}
+            redefine the possibilities of DeFi.
+          </b>
         </p>
         <div>
           <Button
@@ -94,8 +103,12 @@ function Home() {
             sponsors
           </p>
           <p class="sc-a5437e8a-0 lkDHwQ sc-40192098-1 sc-d90d8756-0 sc-d90d8756-12 gppZyd ezdMkO ctuiPb">
-            Collaborating with industry leaders to deliver the best trading
-            experience in DeFi.
+            Scroll, Mantle, or Polygon zkEVM layer-2 solutions reduce Ethereum
+            gas fees and improve transaction speeds, making the platform more
+            cost-effective for users. Leveraging Spark and Conduits enhances
+            liquidity and expands the available trading options. Integrating
+            ChainLink price oracles guarantees the accuracy of asset prices,
+            essential for trading and margin calculations.
           </p>
         </div>
         <div className="sc-c7b95291-0 sc-c7b95291-1 sc-d90d8756-4 gYjLfv dmapUF cVgEsK">
