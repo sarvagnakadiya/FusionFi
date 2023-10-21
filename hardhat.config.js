@@ -14,11 +14,23 @@ module.exports = {
       accounts: [process.env.LOCAL_PRIVATE_KEY], //Your private key
     },
     scroll: {
-      url: process.env.MUMBAI_API_KEY_URL, //Your RPC URL
+      url: "https://scroll-sepolia.public.blastapi.io", //Your RPC URL
       accounts: [process.env.PRIVATE_KEY], //Your private key
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: {
+      scroll: process.env.ETHERSCAN_API_KEY,
+    },
+    customChains: [
+      {
+        network: "scroll",
+        chainId: 534351,
+        urls: {
+          apiURL: "https://sepolia-blockscout.scroll.io/api",
+          browserURL: "https://sepolia-blockscout.scroll.io/",
+        },
+      },
+    ],
   },
 };

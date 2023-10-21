@@ -10,5 +10,41 @@
     "network": "scroll",
     "timestamp": "2023-10-20T05:40:34.338Z",
     "contractAddress": "0x467998726250a03857eF577Db198D5Bb0fD8E996"
+  },
+  {
+    "contractName": "Spark",
+    "network": "scroll",
+    "timestamp": "2023-10-21T08:57:23.637Z",
+    "contractAddress": "0x06157451354856897eB90141F0e68F52E9F86FB3"
+  },
+  {
+    "contractName": "Vault",
+    "network": "scroll",
+    "timestamp": "2023-10-21T08:57:23.637Z",
+    "contractAddress": "0x1956EBd96aa355EF177F113444Df2AB4813b7101"
+  },
+  {
+    "contractName": "Spark",
+    "network": "scroll",
+    "timestamp": "2023-10-21T09:07:17.879Z",
+    "contractAddress": "0x9D5F9941f9871Fa078FFeAa5060a4f73D1f9c78c"
+  },
+  {
+    "contractName": "Vault",
+    "network": "scroll",
+    "timestamp": "2023-10-21T09:07:17.879Z",
+    "contractAddress": "0x6176FF6Ad6Eb210E9164e03b0A620FFEC22d352C"
+  },
+  {
+    "contractName": "Spark",
+    "network": "hardhat",
+    "timestamp": "2023-10-21T10:01:17.605Z",
+    "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+  },
+  {
+    "contractName": "Vault",
+    "network": "hardhat",
+    "timestamp": "2023-10-21T10:01:17.605Z",
+    "contractAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
   }
 ]
