@@ -2,36 +2,95 @@
   display: none !important;
 }
 
-/* @media only screen and ((min-width: 900px)) {
+@media only screen and ((max-width: 1028px)) {
   .grid-ele {
     max-width: 100% !important;
     flex-basis: 100% !important;
   }
   .grid-ele2 {
-    max-width: 60% !important;
-    flex-basis: 60% !important;
-    margin: 0 auto !important;
+    max-width: 50% !important;
+    flex-basis: 50% !important;
+    margin: 20px auto !important;
+  }
+  .trade-left-grid {
+    height: 70vh !important;
+    margin: 50px 0px !important;
+  }
+
+  .trade-right-grid {
+    height: 70vh !important;
+    justify-content: center !important;
+    padding: 30px 20px !important;
+  }
+
+  .long-short-btn {
+    width: 60% !important;
   }
 }
-@media only screen and ((min-width: 600px)) {
+@media only screen and ((max-width: 768px)) {
   .grid-ele {
-    max-width: 100% !important;
-    flex-basis: 100% !important;
+    max-width: 90% !important;
+    flex-basis: 90% !important;
+    margin: 0 auto !important;
   }
   .grid-ele2 {
     max-width: 60% !important;
     flex-basis: 60% !important;
     margin: 0 auto !important;
+  }
+  .trade-left-grid {
+    height: 50vh !important;
+  }
+
+  .trade-right-grid {
+    height: 70vh !important;
+    justify-content: center !important;
+    padding: 30px 20px !important;
+  }
+
+  .long-short-btn {
+    width: 60% !important;
   }
 }
-@media only screen and ((min-width: 525px)) {
-  .grid-ele {
-    max-width: 100% !important;
-    flex-basis: 100% !important;
+@media only screen and ((max-width: 425px)) {
+  .trade-left-grid {
+    height: 35vh !important;
+    margin: 18px !important;
+    padding: 22px 0px !important;
   }
   .grid-ele2 {
-    max-width: 60% !important;
-    flex-basis: 60% !important;
-    margin: 0 auto !important;
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin: 18px !important;
   }
-} */
+  .trade-right-grid {
+    height: 70vh !important;
+    justify-content: center !important;
+    padding: 30px 20px !important;
+  }
+
+  .long-short-btn {
+    width: 100% !important;
+  }
+}
+@media only screen and ((max-width: 375px)) {
+  .trade-left-grid {
+    height: 35vh !important;
+    margin: 18px !important;
+    padding: 22px 0px !important;
+  }
+  .grid-ele2 {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin: 18px !important;
+  }
+  .trade-right-grid {
+    height: 70vh !important;
+    justify-content: center !important;
+    padding: 30px 20px !important;
+  }
+
+  .long-short-btn {
+    width: 100% !important;
+  }
+}

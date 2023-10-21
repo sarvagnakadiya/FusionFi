@@ -123,7 +123,13 @@ function Shortperps() {
     setAge(event.target.value);
   };
   return (
-    <div style={{ color: "white", width: "100%", marginTop: "30px" }}>
+    <div
+      style={{
+        color: "white",
+        width: "100%",
+        marginTop: "30px",
+      }}
+    >
       <div style={{ width: "100%", margin: "10px 0px" }}>
         <Typography
           gutterBottom
@@ -269,10 +275,11 @@ function Shortperps() {
               color: "black",
               border: "none",
               borderRadius: "10px",
-              width: "100%",
+              width: "60%",
               fontWeight: "700",
               cursor: "pointer",
             }}
+            className="long-short-btn"
           >
             Confirm Short
           </Button>

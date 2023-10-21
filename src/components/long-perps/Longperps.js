@@ -123,7 +123,10 @@ function Longperps() {
     setAge(event.target.value);
   };
   return (
-    <div style={{ color: "white", width: "100%", marginTop: "30px" }}>
+    <div
+      style={{ color: "white", width: "100%", marginTop: "30px" }}
+      className="longperps-main"
+    >
       <div style={{ width: "100%", margin: "10px 0px" }}>
         <Typography
           gutterBottom
@@ -216,7 +219,10 @@ function Longperps() {
             <div style={{ padding: "0px 5px" }}>USDC</div>
           </div>
         </div>
-        <div style={{ margin: "30px 0px", borderTop: "1px solid gray" }}>
+        <div
+          style={{ margin: "30px 0px", borderTop: "1px solid gray" }}
+          className="longperps-border"
+        >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             {" "}
             <Typography
@@ -268,10 +274,11 @@ function Longperps() {
               color: "black",
               border: "none",
               borderRadius: "10px",
-              width: "100%",
+              width: "60%",
               fontWeight: "700",
               cursor: "pointer",
             }}
+            className="long-short-btn"
           >
             Confirm Long
           </Button>
