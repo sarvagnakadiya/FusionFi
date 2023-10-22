@@ -150,7 +150,7 @@ function Withdraw() {
                 }}
                 onClick={handleWithdraw}
               >
-                Deposit
+                Withdraw
               </Button>
             </>
           ) : (

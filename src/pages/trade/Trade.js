@@ -10,6 +10,8 @@ import Longperps from "../../components/long-perps/Longperps";
 import Shortperps from "../../components/short-perps/Shortperps";
 import "../trade/Trade.css";
 import Footer from "../../components/footer/Footer";
+import LongPosition from "../../components/position/LongPosition";
+import ShortPosition from "../../components/position/ShortPosition";
 
 let tvScriptLoadingPromise;
 
@@ -36,6 +38,13 @@ function Trade() {
   const [showLongPerps, setshowLongPerps] = useState(true);
   const [showShortPerps, setshowShortPerps] = useState(false);
   const [activeButton, setActiveButton] = useState("longperps");
+  const [showLongPosition, setShowLongPosition] = useState(false); // New state variable
+
+  const handleLongPositionOpen = () => {
+    // Set the state variable to true when the "Confirm Long" button is clicked
+    setShowLongPosition(true);
+  };
+
 
   const handleLongPerpsClick = () => {
     setshowLongPerps(true);
@@ -156,13 +165,18 @@ function Trade() {
                     Short
                   </Button>
                 </ButtonGroup>
-                {showLongPerps && <Longperps />}
+                {showLongPerps && <Longperps  onConfirmLong={handleLongPositionOpen}/>}
                 {showShortPerps && <Shortperps />}
               </Item>
             </Grid>
           </Grid>
+          <div>
+         <LongPosition />
+         <ShortPosition/>
+          </div>
         </Box>
       </div>
+
       <Footer />
     </div>
   );

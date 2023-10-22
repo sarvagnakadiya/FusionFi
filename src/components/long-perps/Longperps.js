@@ -116,7 +116,7 @@ AirbnbThumbComponent.propTypes = {
   children: PropTypes.node,
 };
 
-function Longperps() {
+function Longperps({onConfirmLong}) {
   const [age, setAge] = useState("");
   const [value, setValue] = useState(60);
   const [amount, setAmount] = useState("");
@@ -144,6 +144,7 @@ function Longperps() {
 
       // You can listen for transaction confirmation or do other actions here
       console.log("Transaction sent:", tx);
+      onConfirmLong();
     } catch (error) {
       console.error("Error opening position:", error);
     }
