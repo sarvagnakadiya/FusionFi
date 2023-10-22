@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import "../../pages/vault/Vault.css";
 
 import { ethers } from "ethers";
-import { depositVaultInstance, vaultInstance } from "../vaultInstance";
+import { vaultInstance } from "../vaultInstance";
 import { useAccount } from "wagmi";
 
 function Deposit() {
@@ -16,16 +16,17 @@ function Deposit() {
   const handleDeposit = async () => {
     try {
       // Get the contract instance
-      const vaultContract = await depositVaultInstance();
+      const vaultContract = await vaultInstance();
 
       // Get the amount to deposit (you may get this from user input)
       // For example, let's assume you want to deposit 1 ETH
 
       console.log(amount);
+      const weiValue = ethers.utils.parseEther(amount.toString());
 
       // Call the deposit function on the contract'
       console.log(address);
-      const transaction = await vaultContract.deposit(amount, address);
+      const transaction = await vaultContract.deposit(weiValue, address);
       console.log(transaction.hash);
 
       // Wait for the transaction to be mined (you can show a loading indicator here)
@@ -127,22 +128,47 @@ function Deposit() {
             margin: "30px 0px",
           }}
         >
-          <Button
-            variant="outlined"
-            style={{
-              width: "100%",
-              padding: " 10px",
-              background:
-                "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
-              color: "black",
-              border: "none",
-              borderRadius: "10px",
-              fontWeight: "700",
-            }}
-            onClick={handleDeposit}
-          >
-            Deposit
-          </Button>
+          {amount <= 0 ? (
+            <>
+              <Button
+                variant="outlined"
+                disabled
+                style={{
+                  width: "100%",
+                  padding: "10px",
+                  background:
+                    "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
+                  color: "black",
+                  border: "none",
+                  borderRadius: "10px",
+                  fontWeight: "700",
+                  opacity: "30%",
+                }}
+                onClick={handleDeposit}
+              >
+                Deposit
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="outlined"
+                style={{
+                  width: "100%",
+                  padding: " 10px",
+                  background:
+                    "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
+                  color: "black",
+                  border: "none",
+                  borderRadius: "10px",
+                  fontWeight: "700",
+                }}
+                onClick={handleDeposit}
+              >
+                Deposit
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </div>

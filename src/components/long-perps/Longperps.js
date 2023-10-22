@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -9,6 +9,10 @@ import Slider, { SliderThumb } from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import { Button } from "@mui/material";
+
+import { ethers } from "ethers";
+import { perpInstance } from "../vaultInstance";
+import { useAccount } from "wagmi";
 
 function ValueLabelComponent(props) {
   const { children, value } = props;
@@ -113,21 +117,78 @@ AirbnbThumbComponent.propTypes = {
 };
 
 function Longperps() {
-  const [age, setAge] = React.useState("");
-  const [value, setValue] = React.useState(60);
+  const [age, setAge] = useState("");
+  const [value, setValue] = useState(60);
+  const [amount, setAmount] = useState("");
 
   const handleLeverage = (event, newValue) => {
     setValue(newValue);
   };
+
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
+
+  const openPosition = async () => {
+    // Prepare the parameters for the openPosition function
+    const isLong = true; // Change to your desired value
+    const entryPrice = 100; // Change to your desired value
+    const size = 1; // Change to your desired value
+
+    try {
+
+      const perpContract = await perpInstance();
+      // Send the transaction to the Ethereum blockchain
+      const tx = await perpContract.openPosition(isLong, entryPrice, size);
+
+      // You can listen for transaction confirmation or do other actions here
+      console.log("Transaction sent:", tx);
+    } catch (error) {
+      console.error("Error opening position:", error);
+    }
+  };
+
   return (
     <div
       style={{ color: "white", width: "100%", marginTop: "30px" }}
       className="longperps-main"
     >
-      <div style={{ width: "100%", margin: "10px 0px" }}>
+      <div>
+        <div
+          style={{ color: "white", textAlign: "left", padding: " 10px 5px" }}
+        >
+          Amount
+        </div>
+        <div style={{ display: "flex", position: "relative" }}>
+          <input
+            type="text"
+            placeholder="0"
+            onChange={(e) => setAmount(e.target.value)}
+            style={{
+              background: "none",
+              outline: "none",
+              borderRadius: "10px",
+              border: "1px solid rgb(168 172 209 / var(--tw-text-opacity))",
+              color: "white",
+              padding: "20px 15px",
+              width: "100%",
+            }}
+          ></input>
+          <div
+            style={{
+              position: "absolute",
+              right: "25px",
+              top: "20px",
+              color: "white",
+            }}
+          >
+            sDAI
+          </div>
+        </div>
+      </div>
+      
+      {/* <div style={{ width: "100%", margin: "10px 0px" }}>
         <Typography
           gutterBottom
           sx={{
@@ -160,8 +221,8 @@ function Longperps() {
             <MenuItem value={30}>polygon mumbai</MenuItem>
           </Select>
         </FormControl>
-      </div>
-      <div style={{ margin: "10px 0px" }}>
+      </div> */}
+      {/* <div style={{ margin: "10px 0px" }}>
         <div
           style={{
             color: "white",
@@ -218,7 +279,7 @@ function Longperps() {
             </svg>
             <div style={{ padding: "0px 5px" }}>USDC</div>
           </div>
-        </div>
+        </div> */}
         <div
           style={{ margin: "30px 0px", borderTop: "1px solid gray" }}
           className="longperps-border"
@@ -264,9 +325,12 @@ function Longperps() {
             />
           </Box>
         </div>
+        {amount <= 0 ? (
+          <>
         <div>
           <Button
             variant="outlined"
+            disabled
             style={{
               padding: "10px 30px",
               background:
@@ -277,13 +341,39 @@ function Longperps() {
               width: "60%",
               fontWeight: "700",
               cursor: "pointer",
+              opacity: "30%",
             }}
             className="long-short-btn"
+           onClick={openPosition}
           >
             Confirm Long
-          </Button>
+          </Button> 
         </div>
-      </div>
+        </>
+        ) : (
+          <>
+            <Button
+              variant="outlined"
+              style={{
+                padding: "10px 30px",
+                background:
+                  "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
+                color: "black",
+                border: "none",
+                borderRadius: "10px",
+                width: "60%",
+                fontWeight: "700",
+                cursor: "pointer",
+              }}
+             onClick={openPosition}
+            >
+              Confirm Long
+            </Button>
+          </>
+
+
+        )}
+      {/* </div> */}
     </div>
   );
 }

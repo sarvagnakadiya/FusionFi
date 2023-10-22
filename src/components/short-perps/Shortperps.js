@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -9,6 +9,10 @@ import Slider, { SliderThumb } from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import { Button } from "@mui/material";
+
+import { ethers } from "ethers";
+import { perpInstance } from "../vaultInstance";
+import { useAccount } from "wagmi";
 
 function ValueLabelComponent(props) {
   const { children, value } = props;
@@ -113,24 +117,97 @@ AirbnbThumbComponent.propTypes = {
 };
 
 function Shortperps() {
+
+  const { address, connector, isConnected } = useAccount();
+
+  const [amount, setAmount] = useState("");
   const [age, setAge] = React.useState("");
   const [value, setValue] = React.useState(60);
 
   const handleLeverage = (event, newValue) => {
     setValue(newValue);
   };
+
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
+  const closePosition = () => {
+    // Simulated position data
+    const position = {
+      isLong: false,
+      entryPrice: 150, // Example entry price
+      size: 2, // Example position size
+    };
+
+    // Simulated current price
+    const currentPrice = 160; // Example current price
+
+    // Calculate profit or loss
+    const profitOrLoss = (currentPrice - position.entryPrice) * position.size;
+
+    if (position.isLong) {
+      if (profitOrLoss < 0) {
+        console.log("Loss on long position");
+        return;
+      }
+    } else {
+      if (profitOrLoss > 0) {
+        console.log("Loss on short position");
+        return;
+      }
+    }
+
+    // Simulated collateral and positions
+    const collateral = 1000; // Example collateral balance
+    const positions = {}; // Example positions data
+
+    // Update collateral and remove the position
+    collateral += profitOrLoss;
+    delete positions[address]; // Example address
+
+    console.log("Position closed successfully.");
+  };
   return (
     <div
-      style={{
-        color: "white",
-        width: "100%",
-        marginTop: "30px",
-      }}
+      style={{ color: "white", width: "100%", marginTop: "30px" }}
+      className="longperps-main"
     >
-      <div style={{ width: "100%", margin: "10px 0px" }}>
+      <div>
+        <div
+          style={{ color: "white", textAlign: "left", padding: " 10px 5px" }}
+        >
+          Amount
+        </div>
+        <div style={{ display: "flex", position: "relative" }}>
+          <input
+            type="text"
+            placeholder="0"
+            onChange={(e) => setAmount(e.target.value)}
+            style={{
+              background: "none",
+              outline: "none",
+              borderRadius: "10px",
+              border: "1px solid rgb(168 172 209 / var(--tw-text-opacity))",
+              color: "white",
+              padding: "20px 15px",
+              width: "100%",
+            }}
+          ></input>
+          <div
+            style={{
+              position: "absolute",
+              right: "25px",
+              top: "20px",
+              color: "white",
+            }}
+          >
+            sDAI
+          </div>
+        </div>
+      </div>
+      
+      {/* <div style={{ width: "100%", margin: "10px 0px" }}>
         <Typography
           gutterBottom
           sx={{
@@ -163,8 +240,8 @@ function Shortperps() {
             <MenuItem value={30}>polygon mumbai</MenuItem>
           </Select>
         </FormControl>
-      </div>
-      <div style={{ margin: "10px 0px" }}>
+      </div> */}
+      {/* <div style={{ margin: "10px 0px" }}>
         <div
           style={{
             color: "white",
@@ -179,8 +256,7 @@ function Shortperps() {
         <div style={{ display: "flex", position: "relative" }}>
           <input
             type="text"
-            placeholder="
-            0.0000"
+            placeholder=" 0.0000"
             style={{
               background: "none",
               outline: "none",
@@ -222,8 +298,11 @@ function Shortperps() {
             </svg>
             <div style={{ padding: "0px 5px" }}>USDC</div>
           </div>
-        </div>
-        <div style={{ margin: "30px 0px", borderTop: "1px solid gray" }}>
+        </div> */}
+        <div
+          style={{ margin: "30px 0px", borderTop: "1px solid gray" }}
+          className="longperps-border"
+        >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             {" "}
             <Typography
@@ -265,9 +344,12 @@ function Shortperps() {
             />
           </Box>
         </div>
+        {amount <= 0 ? (
+          <>
         <div>
           <Button
             variant="outlined"
+            disabled
             style={{
               padding: "10px 30px",
               background:
@@ -278,14 +360,41 @@ function Shortperps() {
               width: "60%",
               fontWeight: "700",
               cursor: "pointer",
+              opacity: "30%",
             }}
             className="long-short-btn"
+           onClick={closePosition}
           >
             Confirm Short
-          </Button>
+          </Button> 
         </div>
-      </div>
+        </>
+        ) : (
+          <>
+            <Button
+              variant="outlined"
+              style={{
+                padding: "10px 30px",
+                background:
+                  "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
+                color: "black",
+                border: "none",
+                borderRadius: "10px",
+                width: "60%",
+                fontWeight: "700",
+                cursor: "pointer",
+              }}
+             onClick={closePosition}
+            >
+              Confirm Short
+            </Button>
+          </>
+
+
+        )}
+      {/* </div> */}
     </div>
   );
 }
+
 export default Shortperps;
