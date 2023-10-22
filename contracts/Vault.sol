@@ -32,6 +32,7 @@ contract Vault is ERC4626Fees {
 
     /** @dev See {IERC4626-deposit}. */
     function deposit(uint256 assets, address receiver) public virtual override  returns (uint256) {
+        require(assets>0,"Assets can't be zero");
         uint256 maxAssets = maxDeposit(receiver);
         if (assets > maxAssets) {
             revert ERC4626ExceededMaxDeposit(receiver, assets, maxAssets);

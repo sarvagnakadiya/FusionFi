@@ -62,12 +62,16 @@ function Withdraw() {
         <div
           style={{ color: "white", textAlign: "left", padding: " 10px 5px" }}
         >
+        <div
+          style={{ color: "white", textAlign: "left", padding: " 10px 5px" }}
+        >
           Amount
         </div>
         <div style={{ display: "flex", position: "relative" }}>
           <input
             type="text"
             placeholder="0"
+            onChange={(e) => setAmount(e.target.value)}
             onChange={(e) => setAmount(e.target.value)}
             style={{
               background: "none",
@@ -88,10 +92,20 @@ function Withdraw() {
             }}
           >
             sDAI
+          <div
+            style={{
+              position: "absolute",
+              right: "25px",
+              top: "20px",
+              color: "white",
+            }}
+          >
+            sDAI
           </div>
         </div>
       </div>
       <div>
+        {/* <div
         {/* <div
           style={{
             color: "white",
@@ -100,6 +114,8 @@ function Withdraw() {
           }}
         >
           Select chain
+        </div> */}
+        {/* <FormControl
         </div> */}
         {/* <FormControl
           sx={{
@@ -118,6 +134,7 @@ function Withdraw() {
               borderRadius: "10px",
             }}
             className="select-chain"
+            className="select-chain"
           >
             <MenuItem value="">
               <em>Select</em>
@@ -127,11 +144,53 @@ function Withdraw() {
             <MenuItem value={30}>polygon mumbai</MenuItem>
           </Select>
         </FormControl> */}
+        </FormControl> */}
         <div
           style={{
             margin: "30px 0px",
           }}
         >
+          {amount <= 0 ? (
+            <>
+              <Button
+                variant="outlined"
+                disabled
+                style={{
+                  width: "100%",
+                  padding: "10px",
+                  background:
+                    "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
+                  color: "black",
+                  border: "none",
+                  borderRadius: "10px",
+                  fontWeight: "700",
+                  opacity: "30%",
+                }}
+                onClick={handleWithdraw}
+              >
+                Deposit
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="outlined"
+                style={{
+                  width: "100%",
+                  padding: " 10px",
+                  background:
+                    "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
+                  color: "black",
+                  border: "none",
+                  borderRadius: "10px",
+                  fontWeight: "700",
+                }}
+                onClick={handleWithdraw}
+              >
+                Withdraw
+              </Button>
+            </>
+          )}
           {amount <= 0 ? (
             <>
               <Button
