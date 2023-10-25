@@ -116,7 +116,7 @@ AirbnbThumbComponent.propTypes = {
   children: PropTypes.node,
 };
 
-function Longperps({ onConfirmLong }) {
+function Longperps({ setshowLongPosition }) {
   const [age, setAge] = useState("");
   const [value, setValue] = useState(60);
   const [amount, setAmount] = useState("");
@@ -134,7 +134,7 @@ function Longperps({ onConfirmLong }) {
     const isLong = true; // Change to your desired value
     const entryPrice = 100; // Change to your desired value
     const size = 1; // Change to your desired value
-
+    setshowLongPosition(true);
     try {
       const perpContract = await perpInstance();
       // Send the transaction to the Ethereum blockchain
@@ -142,7 +142,6 @@ function Longperps({ onConfirmLong }) {
 
       // You can listen for transaction confirmation or do other actions here
       console.log("Transaction sent:", tx);
-      onConfirmLong();
     } catch (error) {
       console.error("Error opening position:", error);
     }

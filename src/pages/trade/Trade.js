@@ -37,6 +37,8 @@ const Item = styled(Paper)(({ theme }) => ({
 function Trade() {
   const [showLongPerps, setshowLongPerps] = useState(true);
   const [showShortPerps, setshowShortPerps] = useState(false);
+  const [showLongPosition, setshowLongPosition] = useState(false);
+  const [showShortPosition, setshowShortPosition] = useState(false);
   const [activeButton, setActiveButton] = useState("longperps");
 
   const handleLongPerpsClick = () => {
@@ -167,14 +169,18 @@ function Trade() {
                     Short
                   </Button>
                 </ButtonGroup>
-                {showLongPerps && <Longperps />}
-                {showShortPerps && <Shortperps />}
+                {showLongPerps && (
+                  <Longperps setshowLongPosition={setshowLongPosition} />
+                )}
+                {showShortPerps && (
+                  <Shortperps setshowShortPosition={setshowShortPosition} />
+                )}
               </Item>
             </Grid>
           </Grid>
           <div>
-            <LongPosition />
-            <ShortPosition />
+            {showLongPosition ? <LongPosition /> : null}
+            {showShortPosition ? <ShortPosition /> : null}
           </div>
         </Box>
       </div>

@@ -116,8 +116,7 @@ AirbnbThumbComponent.propTypes = {
   children: PropTypes.node,
 };
 
-function Shortperps() {
-
+function Shortperps({ setshowShortPosition }) {
   const { address, connector, isConnected } = useAccount();
 
   const [amount, setAmount] = useState("");
@@ -133,6 +132,7 @@ function Shortperps() {
   };
 
   const closePosition = () => {
+    setshowShortPosition(true);
     // Simulated position data
     const position = {
       isLong: false,
@@ -206,7 +206,7 @@ function Shortperps() {
           </div>
         </div>
       </div>
-      
+
       {/* <div style={{ width: "100%", margin: "10px 0px" }}>
         <Typography
           gutterBottom
@@ -299,80 +299,57 @@ function Shortperps() {
             <div style={{ padding: "0px 5px" }}>USDC</div>
           </div>
         </div> */}
-        <div
-          style={{ margin: "30px 0px", borderTop: "1px solid gray" }}
-          className="longperps-border"
-        >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            {" "}
-            <Typography
-              gutterBottom
-              sx={{
-                textAlign: "left",
-                color: "rgb(168 172 209 / var(--tw-text-opacity))",
-                "--tw-text-opacity": 1,
-                padding: "10px 0px",
-              }}
-            >
-              Liquidation price
-            </Typography>{" "}
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            {" "}
-            <Typography
-              gutterBottom
-              sx={{
-                textAlign: "left",
-                color: "white",
-                padding: "10px 0px",
-              }}
-            >
-              $0
-            </Typography>{" "}
-          </div>
-
-          <Box sx={{ width: "80%", margin: "30px auto" }}>
-            <IOSSlider
-              aria-label="ios slider"
-              defaultValue={60}
-              marks={marks}
-              onChange={handleLeverage}
-              value={value}
-              valueLabelDisplay="on"
-              sx={{ color: "white" }}
-              valueLabelFormat={(value) => `${value}%`}
-            />
-          </Box>
-        </div>
-        {amount <= 0 ? (
-          <>
-        <div>
-          <Button
-            variant="outlined"
-            disabled
-            style={{
-              padding: "10px 30px",
-              background:
-                "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
-              color: "black",
-              border: "none",
-              borderRadius: "10px",
-              width: "60%",
-              fontWeight: "700",
-              cursor: "pointer",
-              opacity: "30%",
+      <div
+        style={{ margin: "30px 0px", borderTop: "1px solid gray" }}
+        className="longperps-border"
+      >
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          {" "}
+          <Typography
+            gutterBottom
+            sx={{
+              textAlign: "left",
+              color: "rgb(168 172 209 / var(--tw-text-opacity))",
+              "--tw-text-opacity": 1,
+              padding: "10px 0px",
             }}
-            className="long-short-btn"
-           onClick={closePosition}
           >
-            Confirm Short
-          </Button> 
+            Liquidation price
+          </Typography>{" "}
         </div>
-        </>
-        ) : (
-          <>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          {" "}
+          <Typography
+            gutterBottom
+            sx={{
+              textAlign: "left",
+              color: "white",
+              padding: "10px 0px",
+            }}
+          >
+            $0
+          </Typography>{" "}
+        </div>
+
+        <Box sx={{ width: "80%", margin: "30px auto" }}>
+          <IOSSlider
+            aria-label="ios slider"
+            defaultValue={60}
+            marks={marks}
+            onChange={handleLeverage}
+            value={value}
+            valueLabelDisplay="on"
+            sx={{ color: "white" }}
+            valueLabelFormat={(value) => `${value}%`}
+          />
+        </Box>
+      </div>
+      {amount <= 0 ? (
+        <>
+          <div>
             <Button
               variant="outlined"
+              disabled
               style={{
                 padding: "10px 30px",
                 background:
@@ -383,15 +360,36 @@ function Shortperps() {
                 width: "60%",
                 fontWeight: "700",
                 cursor: "pointer",
+                opacity: "30%",
               }}
-             onClick={closePosition}
+              className="long-short-btn"
+              onClick={closePosition}
             >
               Confirm Short
             </Button>
-          </>
-
-
-        )}
+          </div>
+        </>
+      ) : (
+        <>
+          <Button
+            variant="outlined"
+            style={{
+              padding: "10px 30px",
+              background:
+                "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
+              color: "black",
+              border: "none",
+              borderRadius: "10px",
+              width: "60%",
+              fontWeight: "700",
+              cursor: "pointer",
+            }}
+            onClick={closePosition}
+          >
+            Confirm Short
+          </Button>
+        </>
+      )}
       {/* </div> */}
     </div>
   );
