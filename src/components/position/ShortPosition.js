@@ -104,7 +104,7 @@ function ShortPosition() {
                   borderRadius: "5px",
                 }}
               >
-                Long
+                Short
               </div>
               <div style={{ color: "white" }}>
                 867.00{" "}
