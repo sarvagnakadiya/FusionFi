@@ -38,13 +38,6 @@ function Trade() {
   const [showLongPerps, setshowLongPerps] = useState(true);
   const [showShortPerps, setshowShortPerps] = useState(false);
   const [activeButton, setActiveButton] = useState("longperps");
-  const [showLongPosition, setShowLongPosition] = useState(false); // New state variable
-
-  const handleLongPositionOpen = () => {
-    // Set the state variable to true when the "Confirm Long" button is clicked
-    setShowLongPosition(true);
-  };
-
 
   const handleLongPerpsClick = () => {
     setshowLongPerps(true);
@@ -128,7 +121,16 @@ function Trade() {
               </Item>
             </Grid>
             <Grid item xs={5} className="grid-ele2">
-              <Item style={{ height: "70vh" }} className="trade-right-grid">
+              <Item
+                className="trade-right-grid"
+                style={{
+                  background:
+                    activeButton === "longperps"
+                      ? "linear-gradient(180deg,rgba(12,88,81,.2) 3.86%,rgba(0,0,0,0) 17.9%),linear-gradient(132.03deg,rgba(21,24,37,.5) 0%,rgba(11,10,7,.5) 100%)"
+                      : "linear-gradient(180deg,rgba(221,64,116,.2) 3.86%,rgba(0,0,0,0) 17.9%),linear-gradient(132.03deg,rgba(21,24,37,.5) 0%,rgba(11,10,7,.5) 100%)",
+                  height: "70vh",
+                }}
+              >
                 <ButtonGroup
                   disableElevation
                   variant="contained"
@@ -165,14 +167,14 @@ function Trade() {
                     Short
                   </Button>
                 </ButtonGroup>
-                {showLongPerps && <Longperps  onConfirmLong={handleLongPositionOpen}/>}
+                {showLongPerps && <Longperps />}
                 {showShortPerps && <Shortperps />}
               </Item>
             </Grid>
           </Grid>
           <div>
-         <LongPosition />
-         <ShortPosition/>
+            <LongPosition />
+            <ShortPosition />
           </div>
         </Box>
       </div>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -116,7 +116,7 @@ AirbnbThumbComponent.propTypes = {
   children: PropTypes.node,
 };
 
-function Longperps({onConfirmLong}) {
+function Longperps({ onConfirmLong }) {
   const [age, setAge] = useState("");
   const [value, setValue] = useState(60);
   const [amount, setAmount] = useState("");
@@ -129,7 +129,6 @@ function Longperps({onConfirmLong}) {
     setAge(event.target.value);
   };
 
-
   const openPosition = async () => {
     // Prepare the parameters for the openPosition function
     const isLong = true; // Change to your desired value
@@ -137,7 +136,6 @@ function Longperps({onConfirmLong}) {
     const size = 1; // Change to your desired value
 
     try {
-
       const perpContract = await perpInstance();
       // Send the transaction to the Ethereum blockchain
       const tx = await perpContract.openPosition(isLong, entryPrice, size);
@@ -188,7 +186,7 @@ function Longperps({onConfirmLong}) {
           </div>
         </div>
       </div>
-      
+
       {/* <div style={{ width: "100%", margin: "10px 0px" }}>
         <Typography
           gutterBottom
@@ -261,80 +259,57 @@ function Longperps({onConfirmLong}) {
             <div>sDAI</div>
           </div>
         </div> */}
-        <div
-          style={{ margin: "30px 0px", borderTop: "1px solid gray" }}
-          className="longperps-border"
-        >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            {" "}
-            <Typography
-              gutterBottom
-              sx={{
-                textAlign: "left",
-                color: "rgb(168 172 209 / var(--tw-text-opacity))",
-                "--tw-text-opacity": 1,
-                padding: "10px 0px",
-              }}
-            >
-              Liquidation price
-            </Typography>{" "}
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            {" "}
-            <Typography
-              gutterBottom
-              sx={{
-                textAlign: "left",
-                color: "white",
-                padding: "10px 0px",
-              }}
-            >
-              $0
-            </Typography>{" "}
-          </div>
-
-          <Box sx={{ width: "80%", margin: "30px auto" }}>
-            <IOSSlider
-              aria-label="ios slider"
-              defaultValue={60}
-              marks={marks}
-              onChange={handleLeverage}
-              value={value}
-              valueLabelDisplay="on"
-              sx={{ color: "white" }}
-              valueLabelFormat={(value) => `${value}%`}
-            />
-          </Box>
-        </div>
-        {amount <= 0 ? (
-          <>
-        <div>
-          <Button
-            variant="outlined"
-            disabled
-            style={{
-              padding: "10px 30px",
-              background:
-                "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
-              color: "black",
-              border: "none",
-              borderRadius: "10px",
-              width: "60%",
-              fontWeight: "700",
-              cursor: "pointer",
-              opacity: "30%",
+      <div
+        style={{ margin: "30px 0px", borderTop: "1px solid gray" }}
+        className="longperps-border"
+      >
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          {" "}
+          <Typography
+            gutterBottom
+            sx={{
+              textAlign: "left",
+              color: "rgb(168 172 209 / var(--tw-text-opacity))",
+              "--tw-text-opacity": 1,
+              padding: "10px 0px",
             }}
-            className="long-short-btn"
-           onClick={openPosition}
           >
-            Confirm Long
-          </Button> 
+            Liquidation price
+          </Typography>{" "}
         </div>
-        </>
-        ) : (
-          <>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          {" "}
+          <Typography
+            gutterBottom
+            sx={{
+              textAlign: "left",
+              color: "white",
+              padding: "10px 0px",
+            }}
+          >
+            $0
+          </Typography>{" "}
+        </div>
+
+        <Box sx={{ width: "80%", margin: "30px auto" }}>
+          <IOSSlider
+            aria-label="ios slider"
+            defaultValue={60}
+            marks={marks}
+            onChange={handleLeverage}
+            value={value}
+            valueLabelDisplay="on"
+            sx={{ color: "white" }}
+            valueLabelFormat={(value) => `${value}%`}
+          />
+        </Box>
+      </div>
+      {amount <= 0 ? (
+        <>
+          <div>
             <Button
               variant="outlined"
+              disabled
               style={{
                 padding: "10px 30px",
                 background:
@@ -345,15 +320,36 @@ function Longperps({onConfirmLong}) {
                 width: "60%",
                 fontWeight: "700",
                 cursor: "pointer",
+                opacity: "30%",
               }}
-             onClick={openPosition}
+              className="long-short-btn"
+              onClick={openPosition}
             >
               Confirm Long
             </Button>
-          </>
-
-
-        )}
+          </div>
+        </>
+      ) : (
+        <>
+          <Button
+            variant="outlined"
+            style={{
+              padding: "10px 30px",
+              background:
+                "linear-gradient(312.73deg,#ffd99f -5.69%,#b5b8ff 108.02%)",
+              color: "black",
+              border: "none",
+              borderRadius: "10px",
+              width: "60%",
+              fontWeight: "700",
+              cursor: "pointer",
+            }}
+            onClick={openPosition}
+          >
+            Confirm Long
+          </Button>
+        </>
+      )}
       {/* </div> */}
     </div>
   );
