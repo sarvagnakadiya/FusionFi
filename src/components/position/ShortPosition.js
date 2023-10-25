@@ -143,8 +143,8 @@ function ShortPosition() {
                 <th>Liquidation price</th>
               </tr>
               <tr>
-                <td>786578</td>
-                <td>$7879</td>
+                <td>9848</td>
+                <td>$56.00</td>
               </tr>
             </table>
           </Item>
